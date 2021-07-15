@@ -101,6 +101,22 @@
 	</style>
 
 	<script type="text/javascript" canvas="canvas">
+		function toggle_visibility(id) {
+  				var x = document.getElementById(id);
+				if (x.style.display === "none") {
+					x.style.display = "block";
+				} else {
+					x.style.display = "none";
+				}
+			}
+
+		function change_to_orange(id1, id2) {
+  			var x = document.getElementById(id1);
+			var y = document.getElementById(id2);
+				x.style.display = "block";
+				y.style.display = "none";
+			}
+
 		window.onload = function() {
 			var canvas = document.getElementById('myCanvas');
 
@@ -188,14 +204,7 @@
                 }
             });
 
-			function myFunction() {
-  				var x = document.getElementsByClassName("app");
-				if (x.style.display === "none") {
-					x.style.display = "block";
-				} else {
-					x.style.display = "none";
-				}
-			}
+			
 
 			// Set up the mandala interactivity.
 			init(true);
@@ -245,27 +254,40 @@
 		</div>
 	</div>
 
-	<button onclick="myFunction()"><img class="center" src="{% static 'images/tb-pen.png' %}" style="position:absolute; top: 440px; left: 23px;">
+	<button onclick="toggle_visibility('pentool');">
+		<img class="center" src="{% static 'images/larger-pencil.png' %}" style="position:absolute; top: 430px; left: 23px;">
 	</button>
-	<img class="center" src="{% static 'images/tb-eraser.png' %}" style="position:absolute; top: 495px; left: 23px;">
-	<img class="center" src="{% static 'images/tb-add.png' %}" style="position:absolute; top: 730px; left: 23px;">
-	<div class="app">
-	<div class="controls">
-		<div class="type">
-		  <input type="radio" name="pen-type" id="pen-pencil" checked>
-		  <label for="pen-pencil">
-			  <span class="material-icons md-15"> brush </span>
-		  </label>
-		  <input type="radio" name="pen-type" id="pen-brush">
-		  <label for="pen-brush">
-			  <span class="material-icons md-15"> edit </span>
-		  </label>
-		</div>
-
-		<div class="size">
-		  <input type="range" id="pen-size" min="1" max="50">
-		</div>
-	  </div>
+	<img class="center" src="{% static 'images/tb-eraser.png' %}" style="position:absolute; top: 491px; left: 23px;">
+	<button onclick="toggle_visibility('rgb');">
+		<img class="center" src="{% static 'images/tb-add.png' %}" style="position:absolute; top: 730px; left: 23px;">
+	</button>
+	<div id = "orange" style="display:none">
+		<img class="center" src="{% static 'images/tb-orange.png' %}" style="position:absolute; top: 730px; left: 23px;">
 	</div>
+	<div id = "pentool" style="display:none">
+		<div class="app">
+			<div class="controls">
+				<div class="type">
+				<input type="radio" name="pen-type" id="pen-pencil" checked>
+				<label for="pen-pencil">
+					<span class="material-icons md-15"> edit </span>
+				</label>
+				<input type="radio" name="pen-type" id="pen-brush">
+				<label for="pen-brush">
+					<span class="material-icons md-15"> brush </span>
+				</label>
+				</div>
+
+				<div class="size">
+				<input type="range" id="pen-size" min="1" max="50">
+				</div>
+			</div>
+		</div>
+	</div>
+	<button onclick="change_to_orange('orange', 'rgb');">
+		<div id = "rgb" style="display:none">
+			<img class="center" src="{% static 'images/rgb.png' %}" style="position:absolute; top: 704px; left: 99px;">
+		</div>
+	</button>
 </body>
 </html>
