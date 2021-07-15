@@ -5,3 +5,9 @@ def index(request):
 
 def new_interaction(request):
     return render(request, 'coloring/new_interaction.html')
+
+def home(request):
+    return render(request, 'coloring/home.html')
+
+def drawing(request):
+    return render(request, 'coloring/drawing.html')

@@ -12,19 +12,19 @@
 
 	<style type="text/css">
 		#color-palette {
-			width: 48px;
+			width: 70px;
 			background-color: #f1f1f1;
 			display: flex;
 			flex-wrap: wrap;
-			margin: center;
+			margin: auto;
 		}
 
 		.swatch {
-			width: 40px;
-			height: 40px;
-			-moz-border-radius: 20px;
-			-webkit-border-radius: 20px;
-			border-radius: 20px;
+			width: 24px;
+			height: 24px;
+			-moz-border-radius: 12px;
+			-webkit-border-radius: 12px;
+			border-radius: 12px;
 			margin: 3px;
 		}
 
@@ -68,11 +68,10 @@
 
 				tool.onMouseDown = function (event) {
 				    var hit = mandala.item.hitTest(event.point, { tolerance: 10, fill: true });
-					console.log(hit)
 				    if (hit) {
 				    		// Color pallette keeps track of the full history of colors, though we
 				    		// only color in with the most-recent color.
-						console.log("filled color");
+						console.log("pressed");
 				        hit.item.fillColor = cp.history[cp.history.length - 1];
 				    }
 				}
@@ -87,7 +86,6 @@
 									   .addClass("swatch");
 					$swatch.click(function(){
 						// add color to the color palette history
-						console.log("changed color");
 					  	cp.history.push($(this).css("background-color"));
 					});
 					cp.$container.append($swatch);
@@ -97,7 +95,7 @@
 			// loads a set of colors from a json to create a color palette
 			function getColorsCreatePalette(){
 				cp.$container.html(" ");
-				$.getJSON('/static/coloring/vendors/material/material-edit.json', function(colors){
+				$.getJSON('/static/coloring/vendors/material/material-colors.json', function(colors){
 					var keys = Object.keys(colors);
 					for (var i = keys.length - 1; i >= 0; i--) {
 						cp.options.push(colors[keys[i]][500]);
@@ -123,35 +121,52 @@
 				});
 			}
 
-			// Set up the mandala interactivity.
+			// Set up the mandala interactivity. <a href="/coloring/home"> </a>
 			init(true);
 		}
 	</script>
 </head>
 <body>
-	<div id="color-palette" style="position:absolute; top: 500px; left: 30px;"></div>
 	<div class="full" style="width: 100vw; height: 100vh;">
 		<div class="row" style="height: 5%; width: 100%; margin: 0; padding: 0;">
 			<div class="b1" style="background-color: rgb(97, 97, 97); height: 100%; width: 9%;">
 				<a href="/coloring/home"><img class="center" src="{% static 'images/home-white.png' %}" style="height: 100%; margin: auto;">
 				</a>
 			</div>
-			<div class="b1" style="background-color: rgb(97, 97, 97); height: 100%; width: 6%;">
-				<img class="center" src="{% static 'images/undo-white.png' %}" style="height: 100%; margin: auto;">
-			</div>
-			<div class="b2" style="background-color: rgb(97, 97, 97); height: 100%; width: 70%;">
+			<div class="b1" style="background-color: rgb(97, 97, 97); height: 100%; width: 5%;"></div>
+			<div class="b2" style="background-color: rgb(97, 97, 97); height: 100%; width: 72%;">
 				<img class="center" src="{% static 'images/colorable-white.png' %}" style="height: 100%; margin: auto;">
 			</div>
-			<div class="b1" style="background-color: rgb(97, 97, 97); height: 100%; width: 3%;"></div>
+			<div class="b1" style="background-color: rgb(97, 97, 97); height: 100%; width: 2%;"></div>
 			<div class="b1" style="background-color: rgb(97, 97, 97); height: 100%; width: 12%;">
 				<img class="center" src="{% static 'images/switch-dark.png' %}" style="height: 100%; margin: auto;">
 			</div>
 		</div>
-		<div class="row" style="height: 95%; width: 100%; margin: 0; padding: 0;">
-			<div class="b2" style="background-color: rgb(77, 255, 77); height: 100%; width: 100%;">
-				<canvas id="myCanvas" width="750px" height="750px"></canvas>
+		<div class="box" style="background-color: rgb(177, 177, 177); height: 5%; width: 100%;"></div>
+		<div class="row" style="height: 35%; width: 100%; margin: 0; padding: 0;">
+			<div class="b1" style="background-color: rgb(177, 177, 177); height: 100%; width: 7%;"></div>
+
+			<div class="b2" style="background-color: white; height: 100%; width: 39.5%;">
+				<a href="/coloring/new_interaction">
+					<img class="center" src="{% static 'images/canvas1.png' %}" style="height: 100%; margin: auto;">
+				</a>
 			</div>
+
+			<div class="b1" style="background-color: rgb(177, 177, 177); width: 7%;"></div>
+			
+			<div class="b2" style="background-color: rgb(77, 255, 77); height: 100%; width: 39.5%;"></div>
+			
+			<div class="b1" style="background-color: rgb(177, 177, 177); width: 7%;"></div>
 		</div>
+		<div class="box" style="background-color: rgb(177, 177, 177); height: 5%; width: 100%;"></div>
+		<div class="row" style="height: 35%; width: 100%; margin: 0; padding: 0;">
+			<div class="b1" style="background-color: rgb(177, 177, 177); height: 100%; width: 7%;"></div>
+			<div class="b2" style="background-color: rgb(77, 255, 77); height: 100%; width: 39.5%;"></div>
+			<div class="b1" style="background-color: rgb(177, 177, 177); height: 100%; width: 7%;"></div>
+			<div class="b2" style="background-color: rgb(77, 255, 77); height: 100%; width: 39.5%;"></div>
+			<div class="b1" style="background-color: rgb(177, 177, 177); height: 100%; width: 7%;"></div>
+		</div>
+		<div class="box" style="background-color: rgb(177, 177, 177); height: 15%; width: 100%;"></div>
 	</div>
 
 	
