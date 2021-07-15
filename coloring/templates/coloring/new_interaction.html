@@ -132,22 +132,35 @@
 	<div id="color-palette" style="position:absolute; top: 500px; left: 30px;"></div>
 	<div class="full" style="width: 100vw; height: 100vh;">
 		<div class="row" style="height: 5%; width: 100%; margin: 0; padding: 0;">
-			<div class="b1" style="background-color: rgb(97, 97, 97); height: 100%; width: 9%;">
+			<div class="b1" style="background-color: #394456; height: 100%; width: 9%;">
 				<a href="/coloring/home"><img class="center" src="{% static 'images/home-white.png' %}" style="height: 100%; margin: auto;">
 				</a>
 			</div>
-			<div class="b1" style="background-color: rgb(97, 97, 97); height: 100%; width: 6%;">
-				<img class="center" src="{% static 'images/undo-white.png' %}" style="height: 100%; margin: auto;">
-			</div>
-			<div class="b2" style="background-color: rgb(97, 97, 97); height: 100%; width: 70%;">
+			<div class="b1" style="background-color: #394456; height: 100%; width: 5%;"></div>
+			<div class="b2" style="background-color: #394456; height: 100%; width: 72%;">
 				<img class="center" src="{% static 'images/colorable-white.png' %}" style="height: 100%; margin: auto;">
 			</div>
-			<div class="b1" style="background-color: rgb(97, 97, 97); height: 100%; width: 3%;"></div>
-			<div class="b1" style="background-color: rgb(97, 97, 97); height: 100%; width: 12%;">
-				<img class="center" src="{% static 'images/switch-dark.png' %}" style="height: 100%; margin: auto;">
+			<div class="b1" style="background-color: #394456; height: 100%; width: 2%;"></div>
+			<div class="b1" style="background-color: #394456; height: 100%; width: 12%;">
+				<a href="/coloring/home-dark">
+					<img class="center" src="{% static 'images/switch-dark.png' %}" style="height: 100%; margin: auto;">
+				</a>
 			</div>
 		</div>
-		<div class="row" style="height: 95%; width: 100%; margin: 0; padding: 0;">
+		<div class="row" style="height: 5%; width: 100%; margin: 0; padding: 0;">
+			<div class="b1" style="background-color: white; height: 100%; width: 9%;">
+				<img class="center" src="{% static 'images/undo-black.png' %}" style="height: 100%; margin: auto;">
+			</div>
+			<div class="b1" style="background-color: white; height: 100%; width: 78%;">
+			</div>
+			<div class="b1" style="background-color: white; height: 100%; width: 6%;">
+				<img class="center" src="{% static 'images/zoomin-black.png' %}" style="height: 100%; margin: auto;">
+			</div>
+			<div class="b1" style="background-color: white; height: 100%; width: 6%;">
+				<img class="center" src="{% static 'images/zoomout-black.png' %}" style="height: 100%; margin: auto;">
+			</div>
+		</div>
+		<div class="row" style="height: 90%; width: 100%; margin: 0; padding: 0;">
 			<div class="b2" style="background-color: white; height: 100%; width: 100%; padding-top: 100px;">
 				<canvas id="myCanvas" width="750px" height="750px"></canvas>
 			</div>
