@@ -9,5 +9,8 @@ def new_interaction(request):
 def home(request):
     return render(request, 'coloring/home.html')
 
+def home_dark(request):
+    return render(request, 'coloring/home-dark.html')
+
 def drawing(request):
     return render(request, 'coloring/drawing.html')
