@@ -188,6 +188,15 @@
                 }
             });
 
+			function myFunction() {
+  				var x = document.getElementsByClassName("app");
+				if (x.style.display === "none") {
+					x.style.display = "block";
+				} else {
+					x.style.display = "none";
+				}
+			}
+
 			// Set up the mandala interactivity.
 			init(true);
 		}
@@ -236,7 +245,8 @@
 		</div>
 	</div>
 
-	<img class="center" src="{% static 'images/tb-pen.png' %}" style="position:absolute; top: 440px; left: 23px;">
+	<button onclick="myFunction()"><img class="center" src="{% static 'images/tb-pen.png' %}" style="position:absolute; top: 440px; left: 23px;">
+	</button>
 	<img class="center" src="{% static 'images/tb-eraser.png' %}" style="position:absolute; top: 495px; left: 23px;">
 	<img class="center" src="{% static 'images/tb-add.png' %}" style="position:absolute; top: 730px; left: 23px;">
 	<div class="app">
