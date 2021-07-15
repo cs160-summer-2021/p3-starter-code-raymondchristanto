@@ -121,6 +121,10 @@
 				});
 			}
 
+			$("input[type='image']").click(function() {
+            $("input[id='my_file']").click();
+            });
+
 			// Set up the mandala interactivity. <a href="/coloring/home"> </a>
 			init(true);
 		}
@@ -174,10 +178,9 @@
 			</div>
 			<div class="b1" style="background-color: black; height: 100%; width: 7%;"></div>
 			<div class="b2" style="background-color: black; height: 100%; width: 39.5%;">
-				<a href="/coloring/new_interaction">
-					<img class="center" src="{% static 'images/canvas-white.png' %}" style="height: 100%; margin: auto; border: #394456; border-style: solid; border-radius: 30px; border-width: thick;">
-				</a>
-			</div>
+                <input class="center" type="image" src="{% static 'images/canvas-white.png' %}" style="height: 100%; margin: auto; border: #394456; border-style: solid; border-radius: 30px; border-width: thick;"/>
+                <input type="file" id="my_file" style="display: none;" />
+            </div>
 			<div class="b1" style="background-color: black; height: 100%; width: 7%;"></div>
 		</div>
 		<div class="box" style="background-color: black; height: 19%; width: 100%;"></div>
